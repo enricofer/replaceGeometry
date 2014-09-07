@@ -23,7 +23,6 @@
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
 from PyQt4.QtGui import QAction, QIcon
 # Initialize Qt resources from file resources.py
-import resources_rc
 # Import the code for the dialog
 from replaceGeometry_dialog import replaceGeometryDialog
 from identifygeometry import IdentifyGeometry
@@ -43,6 +42,7 @@ class replaceGeometry():
         """
         # Save reference to the QGIS interface
         self.iface = iface
+        self.canvas = self.iface.mapCanvas()
         # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
